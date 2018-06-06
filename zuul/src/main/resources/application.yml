@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: zuul
+server:
+  port: 7073
+zuul:
+  # 禁止服务自动添加
+  ignoredServices: '*'
+  # 手动添加服务
+  routes:
+    # service的名称与路径
+    test-service:
+      path: /test-service/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7070/eureka
+      fetch-registry: true

@@ -1,0 +1,16 @@
+#spring.application.name=getway
+
+server:
+  port:8080
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+      - id: default_path_to_httpbin
+        uri: http://localhost:7082
+        order: 10000
+        predicates:
+        - Path=/**

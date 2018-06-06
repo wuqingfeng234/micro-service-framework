@@ -10,7 +10,7 @@ zuul:
   routes:
     # service的名称与路径
     test-service:
-      path: /test-service/**
+      path: /test-business/**
 eureka:
   client:
     service-url:

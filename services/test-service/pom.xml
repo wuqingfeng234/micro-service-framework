@@ -12,9 +12,9 @@
     <description>test-service</description>
 
     <!--<parent>-->
-        <!--<groupId>com.git.wuqf</groupId>-->
-        <!--<artifactId>services</artifactId>-->
-        <!--<version>1.0-SNAPSHOT</version>-->
+    <!--<groupId>com.git.wuqf</groupId>-->
+    <!--<artifactId>services</artifactId>-->
+    <!--<version>1.0-SNAPSHOT</version>-->
     <!--</parent>-->
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -1,4 +1,4 @@
-package com.git.wuqf.microservice.test.service.service;
+package com.git.wuqf.microservice.test.service.business;
 
 import com.git.wuqf.microservice.test.service.entity.User;
 

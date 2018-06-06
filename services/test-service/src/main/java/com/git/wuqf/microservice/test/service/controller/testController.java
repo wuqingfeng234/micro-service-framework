@@ -1,6 +1,6 @@
 package com.git.wuqf.microservice.test.service.controller;
 
-import com.git.wuqf.microservice.test.service.service.UserService;
+import com.git.wuqf.microservice.test.service.business.UserService;
 import com.git.wuqf.microservice.test.service.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -40,7 +40,7 @@ public class testController {
     }
 
     @RequestMapping(value = "/getUsers", method = RequestMethod.GET)
-    public List<User> getUser(){
+    public List<User> getUser() {
         return userService.getUserInfo();
     }
 

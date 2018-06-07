@@ -135,18 +135,6 @@ public class Constant {
      * 错误信息，数据不存在
      */
     public static final String ERR_MSG_DATA_NOT_EXISTS = "Data not exists.";
-
-    /**
-     * 项目的路径：http://ip:端口
-     */
-    public static String BASE_PATH = null;
-
-    /**
-     * 图片服务器地址
-     */
-    public static String IMAGES_SERVICE_URL = null;
-
-
     /**
      * 消息类型：url消息
      */
@@ -165,8 +153,6 @@ public class Constant {
     public static final String THIRD_OAUTH_QQ = "qq";
     public static final String THIRD_OAUTH_WEIXIN = "weixin";
     public static final String THIRD_OAUTH_WEIBO = "weibo";
-
-
     /**
      * 短信验证码过期的定时任务时间
      */
@@ -176,13 +162,18 @@ public class Constant {
      */
     public static final int OUT_TIME = 5;// 超时时间为5分钟
     public static final int INTERVAL_TIME = 5;//短信验证码发送时间间隔5分钟
-
     /**
      * 登录二维码过期的定时任务时间
      */
     public static final long TASKQR_INTERVAL_TIME = 1000 * 60 * 5;
-
-
+    /**
+     * 项目的路径：http://ip:端口
+     */
+    public static String BASE_PATH = null;
+    /**
+     * 图片服务器地址
+     */
+    public static String IMAGES_SERVICE_URL = null;
     /**
      * 系统默认大区和异业联盟
      */

@@ -11,6 +11,9 @@ public class UserRole implements Serializable {
     private Long uid;//用户ID
     private Long rid;//角色ID
 
+    public Long getUid() {
+        return uid;
+    }
 
     /**
      * getting setting auto  generate
@@ -19,19 +22,13 @@ public class UserRole implements Serializable {
         this.uid = uid;
     }
 
-    public Long getUid() {
-        return uid;
-    }
-
-
-    public void setRid(Long rid) {
-        this.rid = rid;
-    }
-
     public Long getRid() {
         return rid;
     }
 
+    public void setRid(Long rid) {
+        this.rid = rid;
+    }
 
     //generate toString method
     @Override

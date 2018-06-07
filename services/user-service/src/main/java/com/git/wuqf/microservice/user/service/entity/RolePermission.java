@@ -9,6 +9,9 @@ public class RolePermission implements Serializable {
     private Long rid;//角色ID
     private Long pid;//权限ID
 
+    public Long getRid() {
+        return rid;
+    }
 
     /**
      * getting setting auto  generate
@@ -17,19 +20,13 @@ public class RolePermission implements Serializable {
         this.rid = rid;
     }
 
-    public Long getRid() {
-        return rid;
-    }
-
-
-    public void setPid(Long pid) {
-        this.pid = pid;
-    }
-
     public Long getPid() {
         return pid;
     }
 
+    public void setPid(Long pid) {
+        this.pid = pid;
+    }
 
     //generate toString method
     @Override

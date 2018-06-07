@@ -21,6 +21,10 @@ public class User implements Serializable {
     private List<String> roleStrlist;
     private List<String> perminsStrlist;
 
+    public Long getId() {
+        return id;
+    }
+
     /**
      * getting setting auto  generate
      */
@@ -28,64 +32,53 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     public String getNickname() {
         return nickname;
     }
 
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     public String getEmail() {
         return email;
     }
 
-
-    public void setPswd(String pswd) {
-        this.pswd = pswd;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPswd() {
         return pswd;
     }
 
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+    public void setPswd(String pswd) {
+        this.pswd = pswd;
     }
 
     public Date getCreateTime() {
         return createTime;
     }
 
-
-    public void setLastLoginTime(Date lastLoginTime) {
-        this.lastLoginTime = lastLoginTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getLastLoginTime() {
         return lastLoginTime;
     }
 
-
-    public void setStatus(Long status) {
-        this.status = status;
+    public void setLastLoginTime(Date lastLoginTime) {
+        this.lastLoginTime = lastLoginTime;
     }
 
     public Long getStatus() {
         return status;
     }
 
+    public void setStatus(Long status) {
+        this.status = status;
+    }
 
     //generate toString method
     @Override

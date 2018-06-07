@@ -47,13 +47,13 @@ public class ShiroConfiguration {
 
     @Bean(name = "ehCacheManager")
     @DependsOn("lifecycleBeanPostProcessor")
-    public EhCacheManager ehCacheManager(){
+    public EhCacheManager ehCacheManager() {
         EhCacheManager ehCacheManager = new EhCacheManager();
         return ehCacheManager;
     }
 
     @Bean(name = "securityManager")
-    public DefaultWebSecurityManager securityManager(){
+    public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         securityManager.setRealm(shiroRealm());
         securityManager.setCacheManager(ehCacheManager());//用户授权/认证信息Cache, 采用EhCache 缓存
@@ -61,7 +61,7 @@ public class ShiroConfiguration {
     }
 
     @Bean(name = "shiroFilter")
-    public ShiroFilterFactoryBean shiroFilterFactoryBean(DefaultWebSecurityManager  securityManager){
+    public ShiroFilterFactoryBean shiroFilterFactoryBean(DefaultWebSecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
         shiroFilterFactoryBean.setSecurityManager(securityManager);
 
@@ -78,8 +78,8 @@ public class ShiroConfiguration {
         filterChainDefinitionManager.put("/admin/**", "authc,roles[admin]");
         filterChainDefinitionManager.put("/login", "anon");//anon 可以理解为不拦截
         filterChainDefinitionManager.put("/ajaxLogin", "anon");//anon 可以理解为不拦截
-        filterChainDefinitionManager.put("/statistic/**",  "anon");//静态资源不拦截
-        filterChainDefinitionManager.put("/**",  "authc,roles[user]");//其他资源全部拦截
+        filterChainDefinitionManager.put("/statistic/**", "anon");//静态资源不拦截
+        filterChainDefinitionManager.put("/**", "authc,roles[user]");//其他资源全部拦截
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionManager);
 
         shiroFilterFactoryBean.setLoginUrl("/login");

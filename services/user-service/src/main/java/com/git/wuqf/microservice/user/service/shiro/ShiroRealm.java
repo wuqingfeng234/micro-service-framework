@@ -53,19 +53,19 @@ public class ShiroRealm extends AuthorizingRealm {
             // 若存在，将此用户存放到登录认证info中，无需自己做密码对比，Shiro会为我们进行密码对比校验
             List<Role> rlist = roleDao.findRoleByUid(hasUser.getId());//获取用户角色
             List<Permission> plist = permissionDao.findPermissionByUid(hasUser.getId());//获取用户权限
-            List<String> roleStrlist=new ArrayList<String>();////用户的角色集合
-            List<String> perminsStrlist=new ArrayList<String>();//用户的权限集合
+            List<String> roleStrlist = new ArrayList<String>();////用户的角色集合
+            List<String> perminsStrlist = new ArrayList<String>();//用户的权限集合
             for (Role role : rlist) {
-            	roleStrlist.add(role.getName());
+                roleStrlist.add(role.getName());
             }
             for (Permission permission : plist) {
-            	perminsStrlist.add(permission.getName());
-			}
+                perminsStrlist.add(permission.getName());
+            }
             hasUser.setRoleStrlist(roleStrlist);
             hasUser.setPerminsStrlist(perminsStrlist);
 //            Session session = SecurityUtils.getSubject().getSession();
 //            session.setAttribute("user", hasUser);//成功则放入session
-         // 若存在，将此用户存放到登录认证info中，无需自己做密码对比，Shiro会为我们进行密码对比校验
+            // 若存在，将此用户存放到登录认证info中，无需自己做密码对比，Shiro会为我们进行密码对比校验
             return new SimpleAuthenticationInfo(hasUser, hasUser.getPswd(), getName());
         }
         return null;
@@ -90,9 +90,9 @@ public class ShiroRealm extends AuthorizingRealm {
             //权限信息对象info,用来存放查出的用户的所有的角色（role）及权限（permission）
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
             //用户的角色集合
-            info.addRoles(user.getRoleStrlist()); 
+            info.addRoles(user.getRoleStrlist());
             //用户的权限集合
-            info.addStringPermissions(user.getPerminsStrlist()); 
+            info.addStringPermissions(user.getPerminsStrlist());
 
             return info;
         }

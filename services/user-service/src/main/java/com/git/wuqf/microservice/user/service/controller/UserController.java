@@ -19,19 +19,19 @@ import java.util.Map;
 
 @RestController
 public class UserController {
-	
-	 private static Logger logger = LoggerFactory.getLogger(UserController.class);
+
+    private static Logger logger = LoggerFactory.getLogger(UserController.class);
 
     @Autowired
     private RoleDao uRoleDao;
 
-  //跳转到登录表单页面
+    //跳转到登录表单页面
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "login";
     }
-    
-    
+
+
     @RequestMapping("/")
     public String index(Model model) {
         System.out.println("this is frame");
@@ -44,7 +44,7 @@ public class UserController {
         System.out.println("this is index");
         return "index";
     }
-    
+
     //登陆验证，这里方便url测试，正式上线需要使用POST方式提交
     @RequestMapping(value = "/ajaxLogin", method = RequestMethod.GET)
     public String index(User user) {
@@ -53,7 +53,7 @@ public class UserController {
             Subject currentUser = SecurityUtils.getSubject();
             logger.info("对用户[" + user.getNickname() + "]进行登录验证..验证开始");
             try {
-                currentUser.login( token );
+                currentUser.login(token);
                 //验证是否登录成功
                 if (currentUser.isAuthenticated()) {
                     logger.info("用户[" + user.getNickname() + "]登录认证通过(这里可以进行一些认证通过后的一些系统参数初始化操作)");
@@ -64,33 +64,34 @@ public class UserController {
                     System.out.println("用户[" + user.getNickname() + "]登录认证失败,重新登陆");
                     return "redirect:/login";
                 }
-            } catch ( UnknownAccountException uae ) {
+            } catch (UnknownAccountException uae) {
                 logger.info("对用户[" + user.getNickname() + "]进行登录验证..验证失败-username wasn't in the system");
-            } catch ( IncorrectCredentialsException ice ) {
+            } catch (IncorrectCredentialsException ice) {
                 logger.info("对用户[" + user.getNickname() + "]进行登录验证..验证失败-password didn't match");
-            } catch ( LockedAccountException lae ) {
+            } catch (LockedAccountException lae) {
                 logger.info("对用户[" + user.getNickname() + "]进行登录验证..验证失败-account is locked in the system");
-            } catch ( AuthenticationException ae ) {
+            } catch (AuthenticationException ae) {
                 logger.error(ae.getMessage());
             }
         }
         return "login";
     }
-    
-    
+
+
     /**
      * ajax登录请求接口方式登陆
+     *
      * @param username
      * @param password
      * @return
      */
-    @RequestMapping(value="/ajaxLogin",method=RequestMethod.POST)
+    @RequestMapping(value = "/ajaxLogin", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String,Object> submitLogin(String username, String password,Model model) {
+    public Map<String, Object> submitLogin(String username, String password, Model model) {
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         try {
 
-        	UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             SecurityUtils.getSubject().login(token);
             resultMap.put("status", 200);
             resultMap.put("message", "登录成功");
@@ -101,8 +102,6 @@ public class UserController {
         }
         return resultMap;
     }
-    
-
 
 
 }

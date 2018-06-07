@@ -8,6 +8,9 @@ public class Permission implements Serializable {
     private String url;//url地址
     private String name;//url描述
 
+    public Long getId() {
+        return id;
+    }
 
     /**
      * getting setting auto  generate
@@ -16,28 +19,21 @@ public class Permission implements Serializable {
         this.id = id;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getUrl() {
         return url;
     }
 
-
-    public void setName(String name) {
-        this.name = name;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
     //generate toString method
     @Override

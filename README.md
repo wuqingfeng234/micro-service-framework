@@ -1,1 +1,1 @@
-# micro-service-framework
+# spring cloud netfix demos
